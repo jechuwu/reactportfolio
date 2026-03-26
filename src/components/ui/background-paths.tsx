@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 function FloatingPaths({ position }: { position: number }) {
     const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -13,8 +12,8 @@ function FloatingPaths({ position }: { position: number }) {
         } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
             684 - i * 5 * position
         } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-        color: `rgba(15,23,42,${0.1 + i * 0.03})`,
         width: 0.5 + i * 0.03,
+        duration: 20 + i * 0.8,
     }));
 
     return (
@@ -39,7 +38,7 @@ function FloatingPaths({ position }: { position: number }) {
                             pathOffset: [0, 1, 0],
                         }}
                         transition={{
-                            duration: 20 + Math.random() * 10,
+                            duration: path.duration,
                             repeat: Number.POSITIVE_INFINITY,
                             ease: "linear",
                         }}
@@ -58,11 +57,16 @@ export function BackgroundPaths({
     subtitle?: React.ReactNode;
 }) {
     return (
-        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#121212] transition-colors duration-700">
-            <div className="absolute inset-0">
+        <div className="relative min-h-[80vh] w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#121212] transition-colors duration-700">
+            <motion.div 
+                className="absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+            >
                 <FloatingPaths position={1} />
                 <FloatingPaths position={-1} />
-            </div>
+            </motion.div>
 
             <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center md:items-end h-full pt-32 pb-16">
                 <div className="max-w-4xl text-left w-full">
@@ -70,7 +74,7 @@ export function BackgroundPaths({
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.2 }}
-                        className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-8 text-[#1b1c1b] dark:text-white drop-shadow-lg"
+                        className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-8 text-[#1b1c1b] dark:text-white drop-shadow-lg"
                     >
                         {title}
                     </motion.h1>
@@ -80,7 +84,7 @@ export function BackgroundPaths({
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.4 }}
-                            className="font-body text-lg md:text-xl text-[#1b1c1b]/80 dark:text-white/90 max-w-xl mb-0 leading-relaxed font-light drop-shadow-md"
+                            className="font-body text-base sm:text-lg md:text-xl text-[#1b1c1b]/80 dark:text-white/90 max-w-xl mb-0 leading-relaxed font-light drop-shadow-md"
                         >
                             {subtitle}
                         </motion.p>

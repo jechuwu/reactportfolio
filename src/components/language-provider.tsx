@@ -43,7 +43,7 @@ export const translations = {
         list3: ['IU Embebida', 'Retroalimentación Háptica', 'Ecosistemas'],
 
         // About Page Additions
-        aboutTitle: 'Diseñador. Pensador.<br/>\n                    <span class="text-[#FF4F00] italic">Creador de soluciones.</span>',
+        aboutTitle: 'Diseñador. Pensador.<br/><span class="text-[#FF4F00] italic">Creador de soluciones.</span>',
         aboutDesc: 'Soy un diseñador industrial convencido de que la mejor tecnología es aquella que se siente humana. Combino ingeniería óptica, exploración háptica y diseño de sistemas complejos para crear experiencias tangibles, duraderas y hermosas. Con sede en Berlín y con una obsesión por el detalle absoluto.',
 
         // Project Lumix Additions
@@ -104,7 +104,7 @@ export const translations = {
         list3: ['Embedded UI', 'Haptic Feedback', 'Ecosystems'],
 
         // About Page Additions
-        aboutTitle: 'Designer. Thinker.<br/>\n                    <span class="text-[#FF4F00] italic">Problem solver.</span>',
+        aboutTitle: 'Designer. Thinker.<br/><span class="text-[#FF4F00] italic">Problem solver.</span>',
         aboutDesc: 'I am an industrial designer convinced that the best technology is that which feels human. I combine optical engineering, haptic exploration, and complex system design to create tangible, enduring, and beautiful experiences. Based in Berlin, with an absolute obsession for detail.',
 
         // Project Lumix Additions

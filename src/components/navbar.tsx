@@ -13,6 +13,11 @@ export function Navbar() {
   const { lang, toggleLanguage } = useLanguage()
   const { theme, setTheme } = useTheme()
   const [activeHash, setActiveHash] = useState("")
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,22 +73,22 @@ export function Navbar() {
           </Link>
         </div>
 
-        <div className="z-10 hidden md:flex items-center gap-8 whitespace-nowrap">
-          <Link href="/#projects" className={`nav-link font-headline font-semibold text-[13px] tracking-tight transition-colors ${isActive('/#projects') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
+        <div className="z-10 flex items-center gap-3 md:gap-8 whitespace-nowrap">
+          <Link href="/#projects" className={`nav-link font-headline font-semibold text-[11px] md:text-[13px] tracking-tight transition-colors ${isActive('/#projects') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
             <TranslatedText translationKey="projects" />
           </Link>
-          <Link href="/#services" className={`nav-link font-headline font-semibold text-[13px] tracking-tight transition-colors ${isActive('/#services') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
+          <Link href="/#services" className={`nav-link font-headline font-semibold text-[11px] md:text-[13px] tracking-tight transition-colors ${isActive('/#services') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
             <TranslatedText translationKey="services" />
           </Link>
-          <Link href="/about" className={`nav-link font-headline font-semibold text-[13px] tracking-tight transition-colors ${isActive('/about') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
+          <Link href="/about" className={`nav-link font-headline font-semibold text-[11px] md:text-[13px] tracking-tight transition-colors ${isActive('/about') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
             <TranslatedText translationKey="about" />
           </Link>
-          <Link href="/#contact" className={`nav-link font-headline font-semibold text-[13px] tracking-tight transition-colors ${isActive('/#contact') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
+          <Link href="/#contact" className={`nav-link font-headline font-semibold text-[11px] md:text-[13px] tracking-tight transition-colors ${isActive('/#contact') ? 'text-[#FF4F00]' : 'text-[#1b1c1b] dark:text-white opacity-60 hover:opacity-100'}`}>
             <TranslatedText translationKey="contact" />
           </Link>
         </div>
 
-        <div className="z-10 flex items-center gap-4">
+        <div className="z-10 hidden md:flex items-center gap-4">
           <button 
             onClick={toggleLanguage}
             className="font-headline text-xs font-bold tracking-widest uppercase text-[#1b1c1b] dark:text-white opacity-40 hover:opacity-100 transition-all hover:text-[#FF4F00] dark:hover:text-[#FF4F00] group/lang shadow-none relative"
@@ -100,7 +105,7 @@ export function Navbar() {
             className="flex items-center justify-center p-1.5 text-[#1b1c1b] dark:text-white opacity-40 hover:opacity-100 hover:text-[#FF4F00] dark:hover:text-[#FF4F00] transition-all" 
             title="Toggle Theme"
           >
-            {theme === 'dark' ? (
+            {mounted && theme === 'dark' ? (
               <svg className="w-4 h-4 transition-transform duration-500" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 3v18a9 9 0 100-18V3z"></path>
               </svg>

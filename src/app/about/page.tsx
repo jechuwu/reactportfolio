@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 export default function AboutPage() {
     return (
         <main className="pt-24 min-h-screen flex flex-col">
-            <section className="relative py-48 bg-[#fafafa] dark:bg-[#121212] flex-grow transition-colors duration-500" id="about">
+            <section className="relative py-24 md:py-48 bg-[#fafafa] dark:bg-[#121212] flex-grow transition-colors duration-500" id="about">
                 <div className="max-w-[1600px] mx-auto px-6 md:px-16 flex flex-col items-center text-center">
                     <TranslatedText 
                         translationKey="about" 
