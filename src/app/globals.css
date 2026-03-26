@@ -46,6 +46,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --font-headline: var(--font-poppins);
+  --font-body: var(--font-inter);
 }
 
 :root {
@@ -127,4 +129,77 @@
   html {
     @apply font-sans;
   }
+}
+
+/* Legacy Logo Animation */
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: color 0.4s ease;
+}
+
+.logo-container:hover {
+    color: #FF4F00 !important;
+}
+
+.logo-initials {
+    display: inline-block;
+    font-weight: 900;
+}
+
+.logo-rest {
+    display: inline-block;
+    max-width: 0;
+    opacity: 0;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: -0.05em;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-container:hover .logo-rest {
+    max-width: 300px;
+    opacity: 1;
+    letter-spacing: 0.02em;
+    margin-left: 0.1em;
+    margin-right: 0.3em;
+}
+
+/* Glassmorphic Dock Styles */
+.dock-header {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: auto;
+    max-width: 90%;
+}
+
+.dock-container {
+    border-radius: 999px;
+    padding: 0.85rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .dock-container {
+    /* Legacy dark mode rules for dock removed in favor of liquid-glass Tailwind classes */
+}
+
+.dock-container:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.dark .dock-container:hover {
+    background: rgba(25, 25, 25, 0.85);
+    border-color: rgba(255, 255, 255, 0.15);
 }
